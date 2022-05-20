@@ -2,7 +2,7 @@ name: Publish Npm Package
 
 on:
   push:
-    branches: [ develop ]
+    branches: [ main ]
     paths-ignore:
       - 'README.md'
       - '.github/*'
@@ -79,11 +79,17 @@ jobs:
       - name: Update openblock-l10n
         run: npm i --save openblock-l10n@latest
 
-      - name: Sync translations
+      # Don't push translations to TX, just pull, The push step will be run by the enterprise edition repository.
+      # - name: Sync translations
+      #   run: |
+      #     export TX_TOKEN=${{ secrets.TX_TOKEN }}
+      #     npm run translate
+      #     npm run translate:update
+      - name: Pull translations
         run: |
           export TX_TOKEN=${{ secrets.TX_TOKEN }}
           npm run translate
-          npm run translate:update
+          npm run translate:sync:translations
 
       - name: Set test env
         run: |
@@ -107,7 +113,7 @@ jobs:
           git add .
           git commit -m '[skip ci] Update translations from transifex'
           git remote add origin-translation https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/$GITHUB_REPOSITORY
-          git push --set-upstream origin-translation develop
+          git push --set-upstream origin-translation main
 
       - name: Get package main version
         id: package-version

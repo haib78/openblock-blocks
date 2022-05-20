@@ -1,8 +1,8 @@
 /**
  * Visual Blocks Language
  *
- * Copyright 2020 Arthur Zheng.
- * https://github.com/zhengyangliu/scratch-blocks
+ * Copyright 2020 openblock.cc.
+ * https://github.com/openblockcc/openblock-blocks
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -177,11 +177,6 @@ Blockly.Arduino['arduino_serial_multiSerialReadAByte'] = function(block) {
   }
 
   var code = 'Serial' + arg0 + '.read()';
-  return [code, Blockly.Arduino.ORDER_ATOMIC];
-};
-
-Blockly.Arduino['arduino_sensor_runningTime'] = function() {
-  var code = "millis()";
   return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
 

@@ -1,5 +1,5 @@
 /**
- * Visual Blocks Language
+ * Visual Blocks Editor
  *
  * Copyright 2021 openblock.cc.
  * https://github.com/openblockcc/openblock-blocks
@@ -16,15 +16,33 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+/**
+ * @fileoverview Core JavaScript library for Blockly.
+ * @author arthurzheng@openblock.cc
+ */
 'use strict';
 
-goog.provide('Blockly.Python.texts');
+goog.provide('Blockly.ProgramMode');
 
-goog.require('Blockly.Python');
+/**
+ * @type {string}
+ * @protected
+ */
+Blockly.ProgramMode.programmode = 'realtime';
 
+/**
+ * Set current program mode.
+ * @param {string} mode - Current program mode.
+ */
+Blockly.ProgramMode.setProgramMode = function(mode) {
+  Blockly.ProgramMode.programmode = mode;
+};
 
-Blockly.Python['text'] = function(block) {
-  // Text value.
-  var code = Blockly.Python.quote_(block.getFieldValue('TEXT'));
-  return [code, Blockly.Python.ORDER_ATOMIC];
+/**
+ * Get current program mode.
+ * @return {string} Current program mode.
+ */
+Blockly.ProgramMode.getProgramMode = function() {
+  return Blockly.ProgramMode.programmode;
 };

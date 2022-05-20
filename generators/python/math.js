@@ -1,7 +1,7 @@
 /**
  * Visual Blocks Language
  *
- * Copyright 2021 Arthur Zheng.
+ * Copyright 2021 openblock.cc.
  * https://github.com/openblockcc/openblock-blocks
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -46,3 +46,5 @@ Blockly.Python['math_uint8_number'] = Blockly.Python['math_number'];
 Blockly.Python['math_int9_number'] = Blockly.Python['math_number'];
 Blockly.Python['math_uint10_number'] = Blockly.Python['math_number'];
 Blockly.Python['math_int11_number'] = Blockly.Python['math_number'];
+Blockly.Python['math_0to100_number'] = Blockly.Python['math_number'];
+Blockly.Python['math_half_angle'] = Blockly.Python['math_number'];
